@@ -123,3 +123,13 @@ def staircase(n):
 		print(' '*(n-i) + '#'*(i))
 
 staircase(8)
+
+#This is a grading system
+#Students receive grades from 1 to 100
+#Input's first line is the number of students
+#Next lines will be the grades and the program will round up the grades if they satisfy some conditions
+#If the grade is below 38, it will be kept as "failing grade"
+#If the difference between the grade and the next multiple of 5 is less than 3, round  up to the next multiple of 5
+#Other grades will be kept as is
+def gradingStudents(grades):
+	return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]

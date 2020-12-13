@@ -65,8 +65,8 @@ def staircase(n):
 staircase(6)
 
 def gradingStudents(grades):
-    result = []
-    for i in range(1, len(grades)):
+    '''result = []
+    for i in range(0, len(grades)):
         if grades[i] >= 0 and grades[i] <= 100:
             if grades[i] < 38 or grades[i] % 5 == 0:
                 result.append(grades[i])
@@ -78,6 +78,7 @@ def gradingStudents(grades):
                         result.append(grades[i] + 2)
                 else:
                     result.append(grades[i])
-    return result
+    return result'''
+    return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]
 
 print(gradingStudents([4, 73, 67, 38, 33]))

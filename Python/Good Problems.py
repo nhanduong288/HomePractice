@@ -122,4 +122,4 @@ def staircase(n):
 		#top level has 1 '#' at the end with (n-1) number of spaces and so on
 		print(' '*(n-i) + '#'*(i))
 
-staircase(4)
+staircase(8)

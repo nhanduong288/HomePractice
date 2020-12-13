@@ -1,5 +1,3 @@
-import numpy as np
-
 def combine_lists(list1, list2):
     # Generate a new list containing the elements of list2
     # Followed by the elements of list1 in reverse order

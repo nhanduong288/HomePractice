@@ -132,4 +132,20 @@ staircase(8)
 #If the difference between the grade and the next multiple of 5 is less than 3, round  up to the next multiple of 5
 #Other grades will be kept as is
 def gradingStudents(grades):
+	#Commented out the original solution
+	#It works but lengthy
+	'''result = []
+    for i in range(1, len(grades)):
+        if grades[i] >= 0 and grades[i] <= 100:
+            if grades[i] < 38 or grades[i] % 5 == 0:
+                result.append(grades[i])
+            else:
+                if (grades[i] + 3) % 5 != 0:
+                    if (grades[i] + 1) % 5 == 0:
+                        result.append(grades[i] + 1)
+                    elif (grades[i] + 2) % 5 == 0:
+                        result.append(grades[i] + 2)
+                else:
+                    result.append(grades[i])
+    return result'''
 	return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]

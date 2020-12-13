@@ -82,3 +82,40 @@ def gradingStudents(grades):
     return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]
 
 print(gradingStudents([4, 73, 67, 38, 33]))
+
+def countApplesAndOranges(s, t, a, b, apples, oranges):
+    result_app = []
+    result_ora = []
+    result = []
+    counter_app = 0
+    counter_ora = 0
+    for distance in apples:
+        result_app.append(a+distance)
+    for distance in oranges:
+        result_ora.append(b + distance)
+    for nums in result_app:
+        if nums >= s and nums <= t:
+            counter_app += 1
+    for nums in result_ora:
+        if nums >= s and nums <= t:
+            counter_ora += 1
+    result.append(counter_app)
+    result.append(counter_ora)
+    for things in result:
+        print(things)
+
+def kangaroo(x1, v1, x2, v2):
+    if (x1 > x2 and v1 > v2) or (x2 > x1 and v2 > v1):
+        return "NO"
+    elif (x1 == x2 and v1 < v2) or (x1 == x2 and v2 < v1):
+        return "NO"
+    elif (v1 == v2 and x1 < x2) or (v1 == v2 and x2 < x1):
+        return "NO"
+    elif (x1 < x2 and (x1 / x2) < (v1 / v2)) or (x2 < x1 and (x2 / x1) < (v2 / v1)):
+        return "NO"
+    else:
+        return "YES"
+
+print(abs(0/4)!= abs(4/2))
+print(kangaroo(0,3,4,2))
+print(kangaroo(21,6,47,3))

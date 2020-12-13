@@ -91,5 +91,4 @@ def group_per_user(group_dictionary):
 rand = {"local": ["admin", "userA"], "public": ["admin", "userB"],"administrator": ["admin"]}
 print(group_per_user(rand))
 
-arr = [[' ']*4] * 4
-print(arr)
+

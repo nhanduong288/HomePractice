@@ -105,17 +105,21 @@ def countApplesAndOranges(s, t, a, b, apples, oranges):
         print(things)
 
 def kangaroo(x1, v1, x2, v2):
-    if (x1 > x2 and v1 > v2) or (x2 > x1 and v2 > v1):
+    #If 2 kangaroos start at the same point
+    #The one with higher velocity will always be ahead
+    if x1 == x2 and v1 != v2:
         return "NO"
-    elif (x1 == x2 and v1 < v2) or (x1 == x2 and v2 < v1):
+    #If 2 kangaroos have the same velocity
+    #The one starts further will always be ahead
+    elif v1 == v2 and x1 != x2:
         return "NO"
-    elif (v1 == v2 and x1 < x2) or (v1 == v2 and x2 < x1):
+    #If one kangaroo has a closer start
+    #It will never catch up if its velocity is smaller
+    elif (x1 < x2 and v1 < v2) or (x2 < x1 and v2 < v1):
         return "NO"
-    elif (x1 < x2 and (x1 / x2) < (v1 / v2)) or (x2 < x1 and (x2 / x1) < (v2 / v1)):
-        return "NO"
+    elif x1 < x2 and 
     else:
         return "YES"
-
-print(abs(0/4)!= abs(4/2))
-print(kangaroo(0,3,4,2))
-print(kangaroo(21,6,47,3))
+        
+print(kangaroo(0,3,4,2)) #YES
+print(kangaroo(21,6,47,3)) #NO

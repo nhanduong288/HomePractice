@@ -149,3 +149,27 @@ def gradingStudents(grades):
                     result.append(grades[i])
     return result'''
 	return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]
+
+	#There are 2 kangaroos in a circus
+	#x1 = starting point of kangaroo 1
+	#x2 = starting point of kangaroo 2
+	#v1 = velocity of kangaroo 1
+	#v2 = velocity of kangaroo 2
+	#Return "YES" if at some points 2 kangaroos are at the same place
+	#Otherwise return "NO"
+def kangaroo(x1, v1, x2, v2):
+    #The only way for kangaroos to catch up to each other is
+    #For them to have different velocities AND 
+    #the difference between starting point is the 
+    #multiple of the difference between the velocities
+    if v1 > v2 and (x2 - x1) % (v1 - v2) == 0:
+    	return "YES"
+    else:
+       	return "NO"
+print(kangaroo(0,3,4,2)) #YES
+print(kangaroo(21,6,47,3)) #NO
+print(kangaroo(28,8,96,2)) #NO
+print(kangaroo(14,4,98,2)) # YES
+print(kangaroo(0,2,5,3)) #NO
+
+

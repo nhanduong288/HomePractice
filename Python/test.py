@@ -117,5 +117,29 @@ def kangaroo(x1, v1, x2, v2):
 print(kangaroo(0,3,4,2)) #YES
 print(kangaroo(21,6,47,3)) #NO
 print(kangaroo(28,8,96,2)) #NO
-print(kangaroo(14,4,98,2)) # YES
+print(kangaroo(14,4,98,2)) #YES
 print(kangaroo(0,2,5,3)) #NO
+
+#Finding the total number of integers BETWEEN 2 sets a and b
+#that satisfy these conditions:
+#1. The elements of the first array are all factors of the integer being considered
+#2. The integer being considered is a factor of all elements of the second array
+def getTotalX(a, b):
+    counter = 0
+    #all function returns True only if everything is True
+    for i in range(max(a), min(b)+1):
+        if all([i % numsa == 0 for numsa in a]):
+            if all([numsb % i == 0 for numsb in b]):
+                counter += 1
+    return counter
+
+a = [10,5,4,8]
+print(a.index(min(a)))
+
+def breakingRecords(scores):
+    low_counter = 1
+    high_counter = 1
+    low_index = scores.index(min(scores))
+    high_index = scores.index(max(scores))
+    for score in scores[low_index:]:
+        

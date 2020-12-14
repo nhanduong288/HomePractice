@@ -150,26 +150,40 @@ def gradingStudents(grades):
     return result'''
 	return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]
 
-	#There are 2 kangaroos in a circus
-	#x1 = starting point of kangaroo 1
-	#x2 = starting point of kangaroo 2
-	#v1 = velocity of kangaroo 1
-	#v2 = velocity of kangaroo 2
-	#Return "YES" if at some points 2 kangaroos are at the same place
-	#Otherwise return "NO"
+#There are 2 kangaroos in a circus
+#x1 = starting point of kangaroo 1
+#x2 = starting point of kangaroo 2
+#v1 = velocity of kangaroo 1
+#v2 = velocity of kangaroo 2
+#Return "YES" if at some points 2 kangaroos are at the same place
+#Otherwise return "NO"
 def kangaroo(x1, v1, x2, v2):
     #The only way for kangaroos to catch up to each other is
     #For them to have different velocities AND 
     #the difference between starting point is the 
     #multiple of the difference between the velocities
     if v1 > v2 and (x2 - x1) % (v1 - v2) == 0:
-    	return "YES"
+    	return "Result of kangaroo: YES"
     else:
-       	return "NO"
+       	return "Result of Kangaroo: NO"
+
 print(kangaroo(0,3,4,2)) #YES
 print(kangaroo(21,6,47,3)) #NO
 print(kangaroo(28,8,96,2)) #NO
-print(kangaroo(14,4,98,2)) # YES
+print(kangaroo(14,4,98,2)) #YES
 print(kangaroo(0,2,5,3)) #NO
 
+#Finding the total number of integers BETWEEN 2 sets a and b
+#that satisfy these conditions:
+#1. The elements of the first array are all factors of the integer being considered
+#2. The integer being considered is a factor of all elements of the second array
+def getTotalX(a, b):
+    counter = 0
+    #all function returns True only if everything is True
+    for i in range(max(a), min(b)+1):
+        if all([i % numsa == 0 for numsa in a]):
+            if all([numsb % i == 0 for numsb in b]):
+                counter += 1
+    return counter
 
+print("Result of getTotalX: " + str(getTotalX([2,4], [16,32,96]))) #3

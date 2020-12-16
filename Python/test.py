@@ -136,17 +136,23 @@ def getTotalX(a, b):
 a = [10,5,4,8]
 print(a[1:])
 
+#Given an array of scores 
+#The first score will be the bar to pass (either highest or lowest)
+#breakingRecords will return the number of times that the "highest" or "lowest" score was surpassed
 def breakingRecords(scores):
     high_counter = 0
     low_counter = 0
+    #The first score is atomatically the "highet" or "lowest" score to start with
     high = low = scores[0]
     for score in scores:
+        #If a lower score is found, counter increases and make it the "lowest"
         if score < low:
             low_counter += 1
             low = score
+        #If a higher score is found, counter increases and make it the "highest"
         if score > high:
             high_counter += 1
             high = score
-    return low_counter, high_counter
+    return high_counter, low_counter
 
 print(breakingRecords([10,5,20,20,4,5,2,25,1]))

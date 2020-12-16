@@ -211,3 +211,28 @@ def breakingRecords(scores):
 
 
 print(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
+
+#Given a chocolate bar, two children, Lily and Ron, are determining how to share it
+#s: an array of integers, the numbers on each of the squares of chocolate
+#d: an integer, Ron's birth day
+#m: an integer, Ron's birth month
+#Lily wants to share a contiguous segment of the bar selected such that:
+#1. The length of the segment matches Ron's birth month
+#2. The sum of the integers on the squares is equal to his birth day
+#birhtday function returns an integer denoting the number of ways Lily can divide the bar
+def birthday(s, d, m):
+	#an array to store all the sums of integers
+	result = []
+	for i in range(len(s)):
+		sums = 0
+		#to make sure to not go over array's length
+		if len(s) >= (i + m):
+			#to calculate the sum of m consecutive integers
+			for nums in s[i:i+m]:
+				sums += nums
+			#only add to result array if it equals to d
+			if sums == d:
+				result.append(sums)
+	return len(result)
+
+print(birthday([1,2,1,3,2], 3, 2))

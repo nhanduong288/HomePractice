@@ -133,8 +133,9 @@ def getTotalX(a, b):
                 counter += 1
     return counter
 
-a = [10,5,4,8]
-print(a[1:])
+s = [1, 2, 1, 3, 2]
+for hey in s[1:]:
+    print(hey)
 
 #Given an array of scores 
 #The first score will be the bar to pass (either highest or lowest)

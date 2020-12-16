@@ -235,4 +235,8 @@ def birthday(s, d, m):
 				result.append(sums)
 	return len(result)
 
-print(birthday([1,2,1,3,2], 3, 2))
+print(birthday([1,2,1,3,2], 3, 2)) #2
+print(birthday([1,1,1,1,1,1], 3, 2)) #0
+print(birthday([4], 4, 1)) #1
+
+

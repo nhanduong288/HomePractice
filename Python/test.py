@@ -134,12 +134,19 @@ def getTotalX(a, b):
     return counter
 
 a = [10,5,4,8]
-print(a.index(min(a)))
+print(a[1:])
 
 def breakingRecords(scores):
-    low_counter = 1
-    high_counter = 1
-    low_index = scores.index(min(scores))
-    high_index = scores.index(max(scores))
-    for score in scores[low_index:]:
-        
+    high_counter = 0
+    low_counter = 0
+    high = low = scores[0]
+    for score in scores:
+        if score < low:
+            low_counter += 1
+            low = score
+        if score > high:
+            high_counter += 1
+            high = score
+    return low_counter, high_counter
+
+print(breakingRecords([10,5,20,20,4,5,2,25,1]))

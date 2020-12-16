@@ -1,3 +1,5 @@
+import math
+
 def something(n):
     while n % 2 == 0:
         n = n/2
@@ -91,3 +93,20 @@ def group_per_user(group_dictionary):
 rand = {"local": ["admin", "userA"], "public": ["admin", "userB"],"administrator": ["admin"]}
 print(group_per_user(rand))
 
+def something(n):
+    if (n <= 1):
+        return 1
+    else:
+        return something(n - 1) + something(n-1)
+
+print("hey " + str(something(5)))
+
+def isPrime(n):
+    x = 2
+    while x <= math.sqrt(n):
+        if (n % x == 0):
+            return False
+        return True
+        x += 1
+
+print(isPrime(7))

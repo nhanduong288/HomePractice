@@ -16,6 +16,7 @@ def groups_per_user(group_dictionary):
 print(groups_per_user({"local": ["admin", "userA"],
 		"public":  ["admin", "userB"],
 		"administrator": ["admin"] }))
+print("--------------------------------------------------")
 
 #Complete the function digits(n) that returns how many digits the number has.
 #For example: 25 has 2 digits and 144 has 3 digits.
@@ -33,6 +34,7 @@ print(digits(25))   # Should print 2
 print(digits(144))  # Should print 3
 print(digits(1000)) # Should print 4
 print(digits(0))    # Should print 1
+print("--------------------------------------------------")
 
 #This function prints out a multiplication table
 #(where each number is the result of multiplying the first number of its row by the number at the top of its column).
@@ -48,6 +50,7 @@ def multiplication_table(start, stop):
 
 multiplication_table(1, 3)
 # Should print the multiplication table shown above
+print("--------------------------------------------------")
 
 #The counter function counts down from start to stop when start is bigger than stop, and counts up from start to stop otherwise.
 #Fill in the blanks to make this work correctly.
@@ -72,6 +75,7 @@ def counter(start, stop):
 print(counter(1, 10)) # Should be "Counting up: 1,2,3,4,5,6,7,8,9,10"
 print(counter(2, 1)) # Should be "Counting down: 2,1"
 print(counter(5, 5)) # Should be "Counting up: 5"
+print("--------------------------------------------------")
 
 #The even_numbers function returns a space-separated string of all positive numbers that are divisible by 2,
 #up to and including the maximum that's passed into the function.
@@ -89,6 +93,7 @@ print(even_numbers(10)) # Should be 2 4 6 8 10
 print(even_numbers(1))  # No numbers displayed
 print(even_numbers(3))  # Should be 2
 print(even_numbers(0))  # No numbers displayed
+print("--------------------------------------------------")
 
 #A professor with two assistants, Jamie and Drew, wants an attendance list of the students, in the order that they arrived in the classroom.
 #Drew was the first one to note which students arrived, and then Jamie took over.
@@ -112,6 +117,7 @@ Jamies_list = ["Alice", "Cindy", "Bobby", "Jan", "Peter"]
 Drews_list = ["Mike", "Carol", "Greg", "Marcia"]
 
 print(combine_lists(Jamies_list, Drews_list))
+print("--------------------------------------------------")
 
 #Create a staircase
 #Input is an integer to represent the number of levels of the staircase
@@ -123,6 +129,7 @@ def staircase(n):
 		print(' '*(n-i) + '#'*(i))
 
 staircase(8)
+print("--------------------------------------------------")
 
 #This is a grading system
 #Students receive grades from 1 to 100
@@ -149,6 +156,7 @@ def gradingStudents(grades):
                     result.append(grades[i])
     return result'''
 	return [grade if (grade < 38 or grade % 5 < 3) else (grade + (5 - grade % 5)) for grade in grades[1:]]
+	print("--------------------------------------------------")
 
 #There are 2 kangaroos in a circus
 #x1 = starting point of kangaroo 1
@@ -172,6 +180,7 @@ print(kangaroo(21,6,47,3)) #NO
 print(kangaroo(28,8,96,2)) #NO
 print(kangaroo(14,4,98,2)) #YES
 print(kangaroo(0,2,5,3)) #NO
+print("--------------------------------------------------")
 
 #Finding the total number of integers BETWEEN 2 sets a and b
 #that satisfy these conditions:
@@ -187,6 +196,7 @@ def getTotalX(a, b):
     return counter
 
 print("Result of getTotalX: " + str(getTotalX([2,4], [16,32,96]))) #3
+print("--------------------------------------------------")
 
 #Given an array of scores
 #The first score will be the bar to pass (either highest or lowest)
@@ -211,6 +221,7 @@ def breakingRecords(scores):
 
 
 print(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
+print("--------------------------------------------------")
 
 #Given a chocolate bar, two children, Lily and Ron, are determining how to share it
 #s: an array of integers, the numbers on each of the squares of chocolate
@@ -238,5 +249,33 @@ def birthday(s, d, m):
 print(birthday([1,2,1,3,2], 3, 2)) #2
 print(birthday([1,1,1,1,1,1], 3, 2)) #0
 print(birthday([4], 4, 1)) #1
+print("--------------------------------------------------")
 
+#Given an array of n integers ar = [ar[0], ar[1],...,ar[n-1]]
+#and a positive integer k
+#Find pairs of (i,j) where i < j and ar[i] + ar[k] % k == 0
+def divisibleSumPairs(n, k, ar):
+	ar = sorted(ar)
+	counter = 0
+	for i in range(n):
+		for m in range(1, n, 1):
+			if i < m and (ar[i] + ar[m]) % k == 0:
+				counter += 1
+	return counter
 
+print(divisibleSumPairs(6, 3, [1,3,2,6,1,2])) #5
+print(divisibleSumPairs(2, 2, [8, 10])) #1
+print(divisibleSumPairs(5, 2, [5, 9, 10, 7, 4])) #4
+print("--------------------------------------------------")
+
+def migratoryBirds(arr):
+	arr = sorted(arr)
+	hold = arr.count(arr[0])
+	for freq in arr:
+		if arr.count(freq) > hold:
+			if arr[0] < freq:
+				return arr[0]
+			else:
+				return freq
+
+print(migratoryBirds([1,2,3,4,5,4,3,2,1,3,4]))

@@ -1,3 +1,5 @@
+from collections import Counter
+
 #The groups_per_user function receives a dictionary, which contains group names with the list of users.
 #Users can belong to multiple groups.
 #Fill in the blanks to return a dictionary with the users as keys and a list of their groups as values.
@@ -270,12 +272,13 @@ print("--------------------------------------------------")
 
 def migratoryBirds(arr):
 	arr = sorted(arr)
-	hold = arr.count(arr[0])
-	for freq in arr:
-		if arr.count(freq) > hold:
-			if arr[0] < freq:
-				return arr[0]
-			else:
-				return freq
+	hold = arr[0]
+	for num in arr:
+		if arr.count(num) > arr.count(hold):
+			hold = num
+	return hold
 
-print(migratoryBirds([1,2,3,4,5,4,3,2,1,3,4]))
+print(migratoryBirds([1,1,1,4,4,4,5,3])) #1
+print(migratoryBirds([1,1,4,4,4,5,3])) #4
+print("--------------------------------------------------")
+

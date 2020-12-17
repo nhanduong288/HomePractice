@@ -282,3 +282,44 @@ print(migratoryBirds([1,1,1,4,4,4,5,3])) #1
 print(migratoryBirds([1,1,4,4,4,5,3])) #4
 print("--------------------------------------------------")
 
+#The programmer day every year is the 256th day
+#Leap year will have 29 days for February other than 28 days
+#In Russia 1700-2700, people use Julian calendar then transition to Gregoria
+#The transition year is 1918 where the day after 01/31 is 02/14
+#In Julian calendar, leap year is the year that is divisible by 4
+#In Gregorian calendar, lear year is the year that
+#either: divisible by 400 or divisible by 4 and not by 100
+def dayOfProgrammer(year):
+	months = []
+	sum_of_days = 0
+	month = 0
+	day = 0
+	#Set up the months based on years
+	if year >= 1700 and year <= 1917:
+		if year % 4 == 0:
+			months = [31,29,31,30,31,30,31,31,30,31,30,31]
+		else:
+			months = [31,28,31,30,31,30,31,31,30,31,30,31]
+	if year >= 1919:
+		if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
+			months = [31,29,31,30,31,30,31,31,30,31,30,31]
+		else:
+			months = [31,28,31,30,31,30,31,31,30,31,30,31]
+	if year == 1918:
+		months = [31, 15, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	
+	#256th day of the year will fall randomly inside a month
+	#Keep adding days of months together when it has not reached 256
+	for i in range(len(months)):
+		if sum_of_days < 256:
+			day = 256 - sum_of_days
+			sum_of_days += months[i]
+			month = i + 1
+
+	print(str(day) + "." + "{:02d}".format(month) + "." + str(year))
+
+dayOfProgrammer(2017) #13.09.2017
+dayOfProgrammer(2016) #12.09.2016
+dayOfProgrammer(1800) #12.09.1800
+dayOfProgrammer(1919) #13.09.1919
+dayOfProgrammer(1918) #26.09.1918

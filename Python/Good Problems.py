@@ -323,3 +323,51 @@ dayOfProgrammer(2016) #12.09.2016
 dayOfProgrammer(1800) #12.09.1800
 dayOfProgrammer(1919) #13.09.1919
 dayOfProgrammer(1918) #26.09.1918
+print("--------------------------------------------------")
+
+#Bill and Anna went out to eat
+#bill is an array of prices of what were ordered
+#Anna did not eat the item at index k
+#b is the money Bill asked Anna to pay
+#If Bill was right print "Bon Appetit"
+#If he was not, print the difference that Bill needed to refund to Anna
+def bonAppetit(bill, k, b):
+	total = 0
+	share = 0
+	for i in range(len(bill)):
+		if i != k:
+			total += bill[i]
+	share = total / 2
+	if share == b:
+		print("Bon Appetit")
+	else:
+		print(int(abs(share - b)))
+
+bonAppetit([3,10,2,9], 1, 12) #5
+bonAppetit([72,53,60,66,90,62,12,31,36,94], 6, 288) #6
+bonAppetit([40,39,97,5,2,84,35,93,59,39], 2, 198) #Bon Appetit
+print("--------------------------------------------------")
+
+#Given the n number of socks
+#and an array ar of their serial number
+#Determine how many pairs of socks with matching serial number there are
+def sockMerchant(n, ar):
+	have_pair = []
+	result = 0
+	for num in ar:
+		if ar.count(num) >= 2:
+			have_pair.append(num)
+	#From the array have_pair of all socks that have more than a pair
+	#Create another list with no duplicate item
+	#Use the serial number to determine how many pairs there are
+	have_pair = list(dict.fromkeys(have_pair))
+	for socks in have_pair:
+		if ar.count(socks) % 2 == 0:
+			result += ar.count(socks) / 2
+		else:
+			result += (ar.count(socks) - 1) / 2
+	return result
+
+sockMerchant(9, [10,20,20,10,10,30,50,10,20]) #3
+sockMerchant(7, [1,2,1,2,1,3,2]) #2
+print("--------------------------------------------------")

@@ -352,6 +352,8 @@ print("--------------------------------------------------")
 #and an array ar of their serial number
 #Determine how many pairs of socks with matching serial number there are
 def sockMerchant(n, ar):
+	#Create a new pair to contain all the socks with at least 2 counts
+	#which means they will at least 1 pair
 	have_pair = []
 	result = 0
 	for num in ar:
@@ -359,8 +361,8 @@ def sockMerchant(n, ar):
 			have_pair.append(num)
 	#From the array have_pair of all socks that have more than a pair
 	#Create another list with no duplicate item
-	#Use the serial number to determine how many pairs there are
 	have_pair = list(dict.fromkeys(have_pair))
+	#Use the serial number to determine how many pairs there are
 	for socks in have_pair:
 		if ar.count(socks) % 2 == 0:
 			result += ar.count(socks) / 2

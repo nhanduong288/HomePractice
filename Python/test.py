@@ -157,3 +157,8 @@ def breakingRecords(scores):
     return high_counter, low_counter
 
 print(breakingRecords([10,5,20,20,4,5,2,25,1]))
+
+arr = ['AUDHFJ']
+for things in arr:
+    for thing in things:
+        print(thing)

@@ -388,3 +388,27 @@ pageCount(5,4) #0
 pageCount(6,5) #1
 print("--------------------------------------------------")
 
+#An avid hiker keeps records of his/her hikes
+#Every uphill step is recorded as U
+#Every downhill step is recorded as D
+#A mountain is a sequence of consecutive steps above sea level, 
+#starting with a step up from sea level and ending with a step down to sea level.
+#A valley is a sequence of consecutive steps below sea level, 
+#starting with a step down from sea level and ending with a step up to sea level.
+#Given the steps and path, return the number of times the hiker went to a valley
+def countingValleys(steps, path):
+	seaLevel = valley = 0
+	for ways in path:
+		for way in ways:
+			if way == 'U':
+				seaLevel += 1
+			else:
+				seaLevel -= 1
+		
+			if way == 'U' and seaLevel == 0:
+				valley += 1
+
+	return valley
+
+print(countingValleys(8, ['UDDDUDUU'])) #1
+print(countingValleys(12, ['DDUUDDUDUUUD'])) #2

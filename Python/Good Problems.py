@@ -368,8 +368,23 @@ def sockMerchant(n, ar):
 			result += ar.count(socks) / 2
 		else:
 			result += (ar.count(socks) - 1) / 2
-	return result
+	print(int(result))
 
 sockMerchant(9, [10,20,20,10,10,30,50,10,20]) #3
 sockMerchant(7, [1,2,1,2,1,3,2]) #2
 print("--------------------------------------------------")
+
+#Teacher asks students to open book to a page
+#The students can either open from the front or the back
+#Students always turn 1 page at a time
+#Given n is the number of pages that the book has
+#p is the page to turn to
+#the minimum number of pages that must be turned in order to arrive at page p
+def pageCount(n, p):
+	print(int(min(p//2, n//2 - p//2)))
+
+pageCount(6,2) #1
+pageCount(5,4) #0
+pageCount(6,5) #1
+print("--------------------------------------------------")
+

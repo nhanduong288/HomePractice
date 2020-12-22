@@ -412,3 +412,20 @@ def countingValleys(steps, path):
 
 print(countingValleys(8, ['UDDDUDUU'])) #1
 print(countingValleys(12, ['DDUUDDUDUUUD'])) #2
+print("--------------------------------------------------")
+
+
+def getMoneySpent(keyboards, drives, b):
+	max_budget = 0
+	if keyboards[0] + drives[0] <= b:
+		max_budget = keyboards[0] + drives[0]
+	for keyboard in keyboards:
+		for drive in drives:
+			if keyboard + drive >= max_budget and keyboard + drive <= b:
+				print("max budget: " + str(max_budget))
+				max_budget = keyboard + drive
+				return max_budget
+			else:
+				return -1
+
+print(getMoneySpent([10,2,3], [3,1], 9))

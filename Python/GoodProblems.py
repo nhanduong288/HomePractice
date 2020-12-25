@@ -173,9 +173,9 @@ def kangaroo(x1, v1, x2, v2):
     #the difference between starting point is the 
     #multiple of the difference between the velocities
     if v1 > v2 and (x2 - x1) % (v1 - v2) == 0:
-    	return "Result of kangaroo: YES"
+    	return "YES"
     else:
-       	return "Result of Kangaroo: NO"
+       	return "NO"
 
 print(kangaroo(0,3,4,2)) #YES
 print(kangaroo(21,6,47,3)) #NO
@@ -428,4 +428,4 @@ def getMoneySpent(keyboards, drives, b):
 			else:
 				return -1
 
-print(getMoneySpent([10,2,3], [3,1], 9))
+print(getMoneySpent([10,2,3], [3,1], 9)) 

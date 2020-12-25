@@ -158,7 +158,13 @@ def breakingRecords(scores):
 
 print(breakingRecords([10,5,20,20,4,5,2,25,1]))
 
-arr = ['AUDHFJ']
-for things in arr:
-    for thing in things:
-        print(thing)
+def nameSuggestions(name):
+    result = []
+    alphabets = 'abcdefghijklmnopqrstuvwxyz'.upper()
+    for alphabet in alphabets:
+        if alphabet != name[0]:
+            result.append(alphabet + name[1:])
+    return result
+
+print(nameSuggestions("San"))
+print(nameSuggestions("Nga"))

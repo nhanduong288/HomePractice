@@ -16,7 +16,17 @@ class TestGoodProblems(unittest.TestCase):
         self.assertEqual("NO", GoodProblems.kangaroo(21, 6, 47, 3))
         self.assertEqual("NO", GoodProblems.kangaroo(0, 2, 5, 3))
 
-    
+    def test_getTotalX(self):
+        self.assertEqual(3, GoodProblems.getTotalX([2, 4], [16, 32, 96]))
+
+    def test_breakingRecords(self):
+        self.assertEqual((2, 4), GoodProblems.breakingRecords(
+            [10, 5, 20, 20, 4, 5, 2, 25, 1]))
+
+    def test_birthday(self):
+        self.assertEqual(2, GoodProblems.birthday([1, 2, 1, 3, 2], 3, 2))
+        self.assertEqual(0, GoodProblems.birthday([1, 1, 1, 1, 1, 1], 3, 2))
+        self.assertEqual(1, GoodProblems.birthday([4], 4, 1))
 
     def test_countingValleys(self):
         self.assertEqual(1, GoodProblems.countingValleys(8, ['UDDDUDUU']))

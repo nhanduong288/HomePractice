@@ -223,7 +223,7 @@ def breakingRecords(scores):
 
 
 print(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
-print("--------------------------------------------------")
+print("br--------------------------------------------------")
 
 #Given a chocolate bar, two children, Lily and Ron, are determining how to share it
 #s: an array of integers, the numbers on each of the squares of chocolate
@@ -428,4 +428,4 @@ def getMoneySpent(keyboards, drives, b):
 			else:
 				return -1
 
-print(getMoneySpent([10,2,3], [3,1], 9)) 
+print(getMoneySpent([10,2,3], [3,1], 9))

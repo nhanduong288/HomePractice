@@ -429,3 +429,18 @@ def getMoneySpent(keyboards, drives, b):
 				return -1
 
 print(getMoneySpent([10,2,3], [3,1], 9))
+
+#Given x, y, z as the positions of Cat A, Cat B, Mouse C
+#Assuming the mouse does not move and the cats move at the same speed
+#Return the cat that reaches the mouse first
+#If 2 cats reach the mouse at the same time, return "Mouse C"
+def catAndMouse(x, y, z):
+	if abs(x-z) == abs(y-z):
+		return "Mouse C"
+	elif abs(x-z) < abs(y-z):
+		return "Cat A"
+	else:
+		return "Cat B"
+
+def formingMagicSquare(s):
+	

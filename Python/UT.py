@@ -31,6 +31,10 @@ class TestGoodProblems(unittest.TestCase):
     def test_countingValleys(self):
         self.assertEqual(1, GoodProblems.countingValleys(8, ['UDDDUDUU']))
 
+    def test_catAndMouse(self):
+        self.assertEqual("Cat B", GoodProblems.catAndMouse(1,2,3))
+        self.assertEqual("Mouse C", GoodProblems.catAndMouse(1,3,2))
+
 '''if __name__ == '__main__':
     unittest.main()'''
 

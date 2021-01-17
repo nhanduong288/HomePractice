@@ -160,11 +160,40 @@ print(breakingRecords([10,5,20,20,4,5,2,25,1]))
 
 def nameSuggestions(name):
     result = []
+    name = name.lower()
     alphabets = 'abcdefghijklmnopqrstuvwxyz'.upper()
     for alphabet in alphabets:
         if alphabet != name[0]:
             result.append(alphabet + name[1:])
     return result
 
-print(nameSuggestions("San"))
-print(nameSuggestions("Nga"))
+def alternativeCaseTransform(sentence):
+    result = ""
+    for i in range(len(sentence)):
+        if i%2 == 1: 
+            result += sentence[i].lower()
+        else: 
+            result += sentence[i].upper()
+    return result
+
+print(alternativeCaseTransform("helloo my name is Nhan"))
+
+#to determine if a given string is a permuation of a palindrome
+def palindromePermutation(s):
+    s = s.lower()
+    result = False
+    count = 1
+    if len(s)%2 == 0: 
+        for letter in s:
+            if s.count(letter)%2 == 0:
+                result = True
+    elif len(s)%2 == 1:
+        for letter in s:
+            if s.count(letter)%2 == 1:
+                count += 1
+        if count <= 1:
+            result = True
+    return result
+
+print(palindromePermutation("nhan duong"))
+    

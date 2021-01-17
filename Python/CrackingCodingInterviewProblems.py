@@ -40,3 +40,4 @@ def URLify(s):
 print(URLify("nhan duong   "))
 print(URLify("Mr John Smith"))
 
+cd 

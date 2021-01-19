@@ -464,4 +464,11 @@ def rotateMatrix(matrix):
             # top -> right
             matrix[i][- layer - 1] = top
     return matrix
-	
+
+def formingMagicSquare(s):
+	count = 0
+	for row in s:
+		count += abs(15 - sum(row))
+	return count
+
+print(formingMagicSquare([[4,5,8], [2,4,1], [1,9,7]]))

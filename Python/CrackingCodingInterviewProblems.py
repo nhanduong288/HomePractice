@@ -138,3 +138,4 @@ def stringRotation(s1, s2):
         return isSubstring(s11, s2)
 
 print(stringRotation("waterbottle", "erbottlewat"))
+

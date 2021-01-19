@@ -196,4 +196,11 @@ def palindromePermutation(s):
     return result
 
 print(palindromePermutation("nhan duong"))
-    
+matrix = [[1,0,2], [2,3,4]]
+position = []
+for i in range(len(matrix)):
+    if 0 in matrix[i]:
+        position.append(i)
+        position.append(matrix[i].index(0))
+
+print(position)

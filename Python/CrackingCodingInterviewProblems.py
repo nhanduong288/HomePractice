@@ -76,6 +76,7 @@ def stringComprehension(s):
         return result
 
 #to rotate a matrix 90 degree
+#THIS IS A HARD PROBLEM!!!
 def rotateMatrix(matrix):
     '''rotates a matrix 90 degrees clockwise'''
     n = len(matrix)
@@ -98,5 +99,30 @@ def rotateMatrix(matrix):
             matrix[i][- layer - 1] = top
     return matrix
 
-print([[1,2,3], [4,5,6], [7,8,9]])
-print(rotateMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+def zeroMatrix(matrix):
+    hasZero = False
+    position = []
+    #check to see if there is any 0 in the matrix
+    #store 0's index
+    for m in range(len(matrix)):
+        if 0 in matrix[m]:
+            hasZero = True
+            position.append(m)
+            position.append(matrix[m].index(0))
+    if hasZero:
+        #setting the whole row to 0
+        for i in range(len(matrix[1])):
+            matrix[position[0]][i] = 0
+        #setting the whole column to 0
+        for n in range(len(matrix)):
+            matrix[n][position[1]] = 0
+    return matrix
+
+matrix1 = [[1,2,3], [4,5,0], [7,8,9], [1,2,3]]
+for m1 in matrix1:
+    print(m1)
+print("-----------------")
+matrix2 = zeroMatrix(matrix1)
+#matrix = zeroMatrix([[1,2,3], [4,5,6], [7,0,9]])
+for m2 in matrix2:
+    print(m2)

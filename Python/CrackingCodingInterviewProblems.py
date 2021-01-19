@@ -118,11 +118,23 @@ def zeroMatrix(matrix):
             matrix[n][position[1]] = 0
     return matrix
 
-matrix1 = [[1,2,3], [4,5,0], [7,8,9], [1,2,3]]
+'''matrix1 = [[1,2,3], [4,5,0], [7,8,9], [1,2,3]]
 for m1 in matrix1:
     print(m1)
 print("-----------------")
 matrix2 = zeroMatrix(matrix1)
 #matrix = zeroMatrix([[1,2,3], [4,5,6], [7,0,9]])
 for m2 in matrix2:
-    print(m2)
+    print(m2)'''
+
+def isSubstring(word, str):
+    if word in str:
+        return True
+    return False
+
+def stringRotation(s1, s2):
+    if len(s1) == len(s2) and len(s1) > 0:
+        s11 = s1 + s1
+        return isSubstring(s11, s2)
+
+print(stringRotation("waterbottle", "erbottlewat"))

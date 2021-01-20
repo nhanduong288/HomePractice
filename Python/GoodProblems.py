@@ -472,3 +472,8 @@ def formingMagicSquare(s):
 	return count
 
 print(formingMagicSquare([[4,5,8], [2,4,1], [1,9,7]]))
+
+#given an array of integers, find the longest subarray where the absolute
+#subarray where the absolute difference between any two elements is less than
+#or equal to 1
+def pickingNumbers(a):

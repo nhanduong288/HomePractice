@@ -478,19 +478,25 @@ print(formingMagicSquare([[4,5,8], [2,4,1], [1,9,7]]))
 #or equal to 1
 def pickingNumbers(a):
 	#declare maximum variable
-	count = 0
+	maximum = 0
 	'''for i in a:
 		c = a.count(i)
 		d = a.count(i-1)
 		c = c+d
+		print("c: " + str(c))
+		print("maximum: " + str(maximum))
 		if c > maximum:
-			maximum = c'''
+			maximum = c
+	return maximum'''
 	for i in a:
 		#find the frequency of a number and its less-than-or-equal-to-1 numbers
 		num = a.count(i)
 		smaller_num = a.count(i-1)
 		#count is the total of frequency of all those
-		count = num + smaller_num
-	return count
+		num = num + smaller_num
+		#save the highest count
+		if num > maximum:
+			maximum = num
+	return maximum
 
-print(pickingNumbers([1,1,2,2,4,4,5,5,5]))
+print(pickingNumbers([4,6,5,3,3,1]))

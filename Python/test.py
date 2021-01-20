@@ -203,4 +203,5 @@ for i in range(len(matrix)):
         position.append(i)
         position.append(matrix[i].index(0))
 
-print(position)
+a = [3,5,2,1,4]
+print(sorted(a))

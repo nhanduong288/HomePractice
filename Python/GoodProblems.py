@@ -477,3 +477,13 @@ print(formingMagicSquare([[4,5,8], [2,4,1], [1,9,7]]))
 #subarray where the absolute difference between any two elements is less than
 #or equal to 1
 def pickingNumbers(a):
+	maximum=0
+	for i in a:
+		c = a.count(i)
+		d = a.count(i-1)
+		c = c+d
+		if c > maximum:
+			maximum = c
+	return maximum
+
+print(pickingNumbers([1,1,2,2,4,4,5,5,5]))

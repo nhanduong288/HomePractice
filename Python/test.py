@@ -203,11 +203,17 @@ for i in range(len(matrix)):
         position.append(i)
         position.append(matrix[i].index(0))
 
-a = [3,5,2,1,4]
-a.sort(reverse=True)
-n = 2
-for i in range(len(a) - 1):
-    if a[i] >= n and a[i+1] < n:
-        a.insert(a.index(a[i]), n)
-        break
+a = [100,100,50,40,40,20,10]
 print(a)
+a.append(25)
+a.sort(reverse=True)
+print(a)
+rank = 1
+ranking =[1]
+for i in range(len(a)-1):
+    if a[i] == a[i+1]:
+        ranking.append(rank)
+    elif a[i+1] < a[i]:
+        rank += 1
+        ranking.append(rank)
+print(ranking)

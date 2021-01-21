@@ -493,24 +493,21 @@ def pickingNumbers(a):
 print(pickingNumbers([4,6,5,3,3,1]))
 
 def climbingLeaderBoard(ranked, player):
-	#declare an array for the result
+	#declare result array
 	result = []
-	#sort ranked from high to low
+	#create an array to contain ranking numbers based on ranked
 	ranked.sort(reverse=True)
-	#add player's scores to ranked
+	rank = 1
+	ranking = [1]
 	for score in player:
-		for i in range(len(ranked)-1):
-			#if score is higher than any other scores, add to the beginning
-			if score > ranked[0]:
-				ranked.insert(0, score)
-			#if score is lower than any other scores, add to the end
-			elif score < ranked[-1]:
-				ranked.append(score)
-			#add score to between higher and lower scores
-			elif ranked[i] >= score and ranked[i+1] < score:
-				ranked.insert(ranked.index(ranked[i]), score)
-				ranked.sort(reverse=True)
-				break
-	return ranked
+		ranked.append(score)
+		for i in range(len(ranked) - 1):
+			if ranked[i] == ranked[i+1]:
+				ranking.append(rank)
+			elif ranked[i+1] < ranked[i]:
+				rank += 1
+				ranking.append(rank)
+			ranked.remove(score)
+	return result			
 
 print(climbingLeaderBoard([100,100,50,40,40,20,10], [5,25,50,120]))

@@ -204,4 +204,10 @@ for i in range(len(matrix)):
         position.append(matrix[i].index(0))
 
 a = [3,5,2,1,4]
-print(sorted(a))
+a.sort(reverse=True)
+n = 2
+for i in range(len(a) - 1):
+    if a[i] >= n and a[i+1] < n:
+        a.insert(a.index(a[i]), n)
+        break
+print(a)

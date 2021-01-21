@@ -479,15 +479,6 @@ print(formingMagicSquare([[4,5,8], [2,4,1], [1,9,7]]))
 def pickingNumbers(a):
 	#declare maximum variable
 	maximum = 0
-	'''for i in a:
-		c = a.count(i)
-		d = a.count(i-1)
-		c = c+d
-		print("c: " + str(c))
-		print("maximum: " + str(maximum))
-		if c > maximum:
-			maximum = c
-	return maximum'''
 	for i in a:
 		#find the frequency of a number and its less-than-or-equal-to-1 numbers
 		num = a.count(i)
@@ -500,3 +491,26 @@ def pickingNumbers(a):
 	return maximum
 
 print(pickingNumbers([4,6,5,3,3,1]))
+
+def climbingLeaderBoard(ranked, player):
+	#declare an array for the result
+	result = []
+	#sort ranked from high to low
+	ranked.sort(reverse=True)
+	#add player's scores to ranked
+	for score in player:
+		for i in range(len(ranked)-1):
+			#if score is higher than any other scores, add to the beginning
+			if score > ranked[0]:
+				ranked.insert(0, score)
+			#if score is lower than any other scores, add to the end
+			elif score < ranked[-1]:
+				ranked.append(score)
+			#add score to between higher and lower scores
+			elif ranked[i] >= score and ranked[i+1] < score:
+				ranked.insert(ranked.index(ranked[i]), score)
+				ranked.sort(reverse=True)
+				break
+	return ranked
+
+print(climbingLeaderBoard([100,100,50,40,40,20,10], [5,25,50,120]))

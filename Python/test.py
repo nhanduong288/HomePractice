@@ -203,17 +203,8 @@ for i in range(len(matrix)):
         position.append(i)
         position.append(matrix[i].index(0))
 
-a = [100,100,50,40,40,20,10]
-print(a)
-a.append(25)
-a.sort(reverse=True)
-print(a)
-rank = 1
-ranking =[1]
-for i in range(len(a)-1):
-    if a[i] == a[i+1]:
-        ranking.append(rank)
-    elif a[i+1] < a[i]:
-        rank += 1
-        ranking.append(rank)
-print(ranking)
+alphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+h = "1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5"
+word = "abc"
+for char in word:
+    print(h[alphabet.index(char)])

@@ -490,24 +490,67 @@ def pickingNumbers(a):
 			maximum = num
 	return maximum
 
-print(pickingNumbers([4,6,5,3,3,1]))
+print(pickingNumbers([4,6,5,3,3,1])) #3 ([3,3,4])
 
 def climbingLeaderBoard(ranked, player):
-	#declare result array
+	'''#declare result array
 	result = []
-	#create an array to contain ranking numbers based on ranked
-	ranked.sort(reverse=True)
+	#keep track of the ranks
 	rank = 1
-	ranking = [1]
+	#declare a rank list
+	rank_list = [1]
 	for score in player:
+		#add score to ranked in order to find their ranks
 		ranked.append(score)
+		#sort ranks from high to low
+		ranked.sort(reverse=True)
 		for i in range(len(ranked) - 1):
+			#same score same rank
 			if ranked[i] == ranked[i+1]:
-				ranking.append(rank)
+				rank_list.append(rank)
+			#lower score lower ranking
 			elif ranked[i+1] < ranked[i]:
 				rank += 1
-				ranking.append(rank)
-			ranked.remove(score)
-	return result			
+				rank_list.append(rank)
+		result.append(rank_list[ranked.index(score)])
+		ranked.remove(score)
+	return result'''
 
-print(climbingLeaderBoard([100,100,50,40,40,20,10], [5,25,50,120]))
+	#solution from github
+	scores = sorted(list(set(ranked)))
+	index = 0
+	rank_list = []
+	n = len(scores)
+	for i in player:
+	    while (n > index and i >= scores[index]):
+	        index += 1
+	    rank_list.append(n+1-index) 
+	return rank_list			
+
+print(climbingLeaderBoard([100,100,50,40,40,20,10], [5,25,50,120])) #6 4 2 1
+
+def hurdleRace(k, height):
+	for num in height:
+		if k >= max(height):
+			return 0
+		return max(height) - k
+
+rand = "86 4 83 20 6 81 58 59 53 2 54 62 25 35 79 64 27 49 32 95 100 20 58 39 92 30 67 89 58 81 100 66 73 29 75 81 70 55 18 28 7 35 98 52 30 11 69 48 84 54 13 14 15 86 34 82 92 26 8 53 62 57 50 31 61 85 88 5 80 64 90 52 47 43 40 93 69 70 16 43 7 25 99 12 63 99 71 76 55 17 90 43 27 20 42 84 39 96 75 1"
+arr = list(int(i) for i in rand.split())
+print(hurdleRace(53, arr)) #47
+
+def designerPdfViewer(h, word):
+	word = word.lower()
+	alphabet = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'
+	high = h[alphabet.index(word[0])]
+	for char in word:
+		if int(h[alphabet.index(char)]) >= int(high):
+			high = alphabet.index(char) 
+		else:
+			high = high
+	print("h[high]: " + str(h[high]))
+	print("length: " + str(len(word)))
+	result = int(len(word)) * int(h[high])
+	return result
+
+print(designerPdfViewer("1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "abc"))

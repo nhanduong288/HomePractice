@@ -610,3 +610,14 @@ def beautifulDays(i, j, k):
 	return count
 
 print(beautifulDays(20,23,6))
+
+def viralAdvertising(n):
+	cumulative = 0
+	people = 5
+	for i in range(n):
+		cumulative += people // 2
+		people = people // 2 * 3 
+	return cumulative
+
+print(viralAdvertising(5))
+		 

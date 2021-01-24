@@ -205,5 +205,4 @@ for i in range(len(matrix)):
 
 arr = [-93, -86, 49, -62, -90, -63, 40, 72, 11, 67]
 arr2 = [num for num in arr if num < 0]
-for num in range(20, 24):
-    print(type(int(str(num)[::-1])))
+print(3-7)

@@ -553,20 +553,44 @@ def designerPdfViewer(h, word):
 
 print(designerPdfViewer("1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "abc"))
 
+'''The Utopian Tree goes thorugh a 2 cycles of growth every year
+Each spring, it doubles in height, each summer, height increases by one
+utopiaTree calculates how tall the tree will be after n growth cycles 
+'''
 def utopianTree(n):
+	#declare an array to store the height results
 	result = []
+	#height always starts at 1
 	height = 1
+	#calculate height for every amount of cycles from n
 	for num in n:
-		if num == 0:
-			result.append(height)
-		else:
-			for i in range(num):
+		for i in range(num):
+				#spring cycle: double in height
 				if i % 2 == 0:
 					height *= 2
+				#summer cycle: height increases by 1
 				elif i % 2 == 1:
 					height += 1
-				result.append(height)
+		result.append(height)
+		#reset heigh for a new value of cycle
 		height = 1
 	return result
 
-print(utopianTree([0,1,4]))
+print(utopianTree([4,3]))
+
+'''
+angryProfessor functions return YES or NO to answer the question if the professor cancels the class
+The class is cancelled if the threshold (k) of late students is surpassed
+a is the time that students arrive, arrivalTime <= 0 --> on time, arrivalTime > 0 --> late
+'''
+def angryProfessor(k, a):
+	#finding the number of students who were on time
+	on_time = [time for time in a if time <= 0]
+	#to not cancel, there must be at least k students to arrive on time
+	if len(on_time) >= k:
+		return "NO"
+	elif len(on_time) < k:
+		return "YES"
+
+print(angryProfessor(2, [0,-1,2,1]))
+

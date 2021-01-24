@@ -203,8 +203,6 @@ for i in range(len(matrix)):
         position.append(i)
         position.append(matrix[i].index(0))
 
-alphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
-h = "1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5"
-word = "abc"
-for char in word:
-    print(h[alphabet.index(char)])
+arr = [-93, -86, 49, -62, -90, -63, 40, 72, 11, 67]
+arr2 = [num for num in arr if num < 0]
+print(arr2)

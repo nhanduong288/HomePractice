@@ -594,3 +594,19 @@ def angryProfessor(k, a):
 
 print(angryProfessor(2, [0,-1,2,1]))
 
+'''
+beautifulDays counts beautiful days
+Days are from the range of i to j (inclusively)
+Beautiful days are those that having the difference of themselves with their reverse divisible by k
+'''
+def beautifulDays(i, j, k):
+	count = 0
+	for m in range(i, j+1):
+		num = int(str(m)[::-1])
+		if abs(num - m) % k == 0:
+			count += 1
+		else:
+			count += 0
+	return count
+
+print(beautifulDays(20,23,6))

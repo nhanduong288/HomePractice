@@ -548,9 +548,25 @@ def designerPdfViewer(h, word):
 			high = alphabet.index(char) 
 		else:
 			high = high
-	print("h[high]: " + str(h[high]))
-	print("length: " + str(len(word)))
 	result = int(len(word)) * int(h[high])
 	return result
 
 print(designerPdfViewer("1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "abc"))
+
+def utopianTree(n):
+	result = []
+	height = 1
+	for num in n:
+		if num == 0:
+			result.append(height)
+		else:
+			for i in range(num):
+				if i % 2 == 0:
+					height *= 2
+				elif i % 2 == 1:
+					height += 1
+				result.append(height)
+		height = 1
+	return result
+
+print(utopianTree([0,1,4]))

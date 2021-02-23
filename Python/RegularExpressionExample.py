@@ -126,3 +126,31 @@ allDigits = allDigitsRegex.search('92386450871923465') # there cannot be anythin
 print(allDigits.group())
 
 # . character means matching everything except newline character
+atRegex = re.compile(r'.at') # matching anything that has 1 character following with at
+# r'.{1,2}at' will return matches with 1 or 2 characters following "at"
+print(atRegex.findall('The cat in the har sat on the flat mat.')) # does not return "flat" because there are 2 characters follwing "at"
+
+# .* means matching anything
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)') # this means look for the text "First Name: " and "Last Name: " then return whatever comes after that
+print(nameRegex.findall('First Name: Al Last Name: Sweigart'))
+
+# use ? for non-greedy find
+nonGreedyRegex = re.compile(r'<(.*?>)')
+print(nonGreedyRegex.findall("<To Serve Humans> for dinner.>")) # only return <To Serve Humans>
+
+greedyRegex = re.compile(r'<(.*>)')
+print(greedyRegex.findall("<To Serve Humans> for dinner.>")) # return the whole thing
+
+''' TO RECAP:
+- ^ means the string must start with the pattern, $ means the string must end with the pattern. Both means the entire string must match the pattern
+- The . is a wildcard; it matches anything except newlines.
+- Pass re.DOTALL as the second argument to re.compile() to make the . match newlines as well
+- Pass re.I as the second argument to re.compile() to make the matching case sensitive
+'''
+
+namesRegex = re.compile(r'Agent \w+')
+print(namesRegex.findall("Agent Alice gave the secret documents to Agent Bob."))
+print(namesRegex.sub('REDACTED', "Agent Alice gave the secret documents to Agent Bob.")) # subsitute all matches with REDACTED
+
+nameRegex2 = re.compile(r'Agent (\w)\w*')
+print(nameRegex2.sub(r'Agent \1*****', 'Agent Alice gave the secret documents to Agent Bob.'))

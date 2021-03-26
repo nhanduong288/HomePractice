@@ -154,3 +154,11 @@ print(namesRegex.sub('REDACTED', "Agent Alice gave the secret documents to Agent
 
 nameRegex2 = re.compile(r'Agent (\w)\w*')
 print(nameRegex2.sub(r'Agent \1*****', 'Agent Alice gave the secret documents to Agent Bob.'))
+
+# Verbose mode example
+phoneNumRegex6 = re.compile(r'''
+(\d\d\d-)    # area code
+-          # first dash
+\d\d\d     # first 3 digits
+-          # second dash
+\d\d\d\d   # last 4 digits''', re.VERBOSE)

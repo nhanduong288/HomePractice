@@ -5,21 +5,28 @@ Check whether it is possible to choose K numbers in array A and choose M numbers
 so that any number chosen in the first array is strictly less than any number chosen in the second array
 
 Inputs:
-- n1, n2: size pf arrays A and B
-- k, m: integer represent the number of elements taken from A and B
+- n1: size pf arrays A and B
+- k: integer represent the number of elements taken from A and B
 - arrA: arrayA
 - arrB: arrayB
 '''
+#TODO: to compare arrayA[:k[0]] with slices of arrayB with k[1] number of integers from arrayB
 
-n1 = list(map(int, input().split()))
+n = list(map(int, input().split()))
 k = list(map(int, input().split()))
 arrayA = list(map(int, input().split()))
 arrayB = list(map(int, input().split()))
 
-result = ''
+result = 'YES'
 
-# if every number in B is bigger than every number in A, it's a YES
-if min(arrayB) > max(arrayA):
+index = 0
+
+# Because the numbers are in non-decreasing order:
+# If the last number of arrayA[:k[0]] < the first number of arrayB[len(arrayB)-k[1]:len(arrayB)]
+# everything is smaller 
+if arrayA[:k[0]][-1] < arrayB[n[1]-k[1]:n[1]][0]:
     result = 'YES'
+else:
+    result = 'NO'
 
 print(result)

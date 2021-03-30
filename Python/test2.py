@@ -110,3 +110,19 @@ def isPrime(n):
         x += 1
 
 print(isPrime(7))
+
+
+def test(n, arr):
+	min_num = arr[0][0]
+	max_num = arr[0][1]
+	for i in range(1, n):
+		if arr[i][0] < min_num:
+			min_num = arr[i][0]
+		if arr[i][1] > max_num:
+			max_num = arr[i][1]
+	if [min_num,max_num] in arr:
+		print(arr.index([min_num,max_num]) + 1)
+	else:
+		print(-1)
+
+test(6, [[1,5],[2,3],[1,10],[7,10],[7,7],[10,10]])

@@ -1,31 +1,28 @@
 '''
 2 strings S and T have the same length.
-They consist of lowercase English letters, string S is lexicographically smaller than string T.
+They consist of lowercase English new_string[i]s, string S is lexicographically smaller than string T.
 
 Find a string that is lexicographically larger than S and smaller than T.
-That string should also consist of lowercase English letters and have length equal to S and T
+That string should also consist of lowercase English new_string[i]s and have length equal to S and T
 
 Solutions: using ASCII table order
 '''
-# TODO: do something with z
 
 s = input()
 t = input()
 
-new_string = ''
+new_string = list(s)
 
-for i in range(len(s)):
-    if s[i] == 'z':
-        new_string += 'a'
+for i in range(len(new_string)-1,-1,-1):
+    if new_string[i] == 'z':
+        new_string[i] = 'a'
     else:
-        new_string += s[i]
-        
-if new_string < t[:-1]:  
-    new_string = new_string + chr(ord(s[-1]) + 1) 
+        new_string[i] = chr(ord(new_string[i]) + 1)
+        break
+
+new_string = ''.join(new_string)
+
+if new_string == t:
+    print('No such string')
 else:
-    if ord(t[-1]) - ord(s[-1]) <= 1:
-        new_string = 'No such string'
-    else:
-        new_string = new_string + chr(ord(s[-1]) + 1)
-
-print(new_string)
+    print(new_string)

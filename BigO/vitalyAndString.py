@@ -13,6 +13,10 @@ t = input()
 
 new_string = list(s)
 
+# this works like doing 'plus' in math
+# 'add 1' to the last character of string s to get a bigger striing
+# if the letter is 'z', it becomes 'a' since we need to go back to the top of the alphabet
+# compare the new string with t to make sure it's smaller than t
 for i in range(len(new_string)-1,-1,-1):
     if new_string[i] == 'z':
         new_string[i] = 'a'

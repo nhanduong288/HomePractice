@@ -12,21 +12,16 @@ Inputs:
 '''
 #TODO: to compare arrayA[:k[0]] with slices of arrayB with k[1] number of integers from arrayB
 
-n = list(map(int, input().split()))
-k = list(map(int, input().split()))
+nA, nB = list(map(int, input().split()))
+k, m = list(map(int, input().split()))
 arrayA = list(map(int, input().split()))
 arrayB = list(map(int, input().split()))
-
-result = 'YES'
-
-index = 0
+arrayB = arrayB[::-1]
 
 # Because the numbers are in non-decreasing order:
 # If the last number of arrayA[:k[0]] < the first number of arrayB[len(arrayB)-k[1]:len(arrayB)]
 # everything is smaller 
-if arrayA[:k[0]][-1] < arrayB[n[1]-k[1]:n[1]][0]:
-    result = 'YES'
+if arrayA[k-1] < arrayB[m-1]:
+    print('YES')
 else:
-    result = 'NO'
-
-print(result)
+    print('NO')

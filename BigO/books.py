@@ -12,25 +12,19 @@ Print the maximum number of books he can read
 # number of books and the number of free minutes
 n, t = list(map(int, input().split()))
 # number of minutes Valera needs to finish the books
-A = list(map(int, input().split()))
+a = list(map(int, input().split()))
 
-count = [0]*20
-i, j, diff = 0,0,0
+index = 0
+read_books = max_books = 0
 
-while j < n:
-    if count[A[j]] == 0: 
-        diff += 1
-    count[A[i]] += 1
-    if diff == k:
-        break
-    j += 1
+for i in range(n):
+    while t < a[i]:
+        t += a[index]
+        index += 1
+        read_books -= 1
+    
+    t -= a[i]
+    read_books += 1
+    max_books = max(max_books, read_books)
 
-while i < n:
-    if count[A[i]] == 1:
-        diff -= 1
-    count[A[i]] -= 1
-    if diff < k:
-        i = i - 1
-        break
-
-print(j+1, i+1)
+print(max_books)

@@ -15,15 +15,21 @@ Note: George can come up with a new problem of any complexity
 # minimal number of problems in a good round and number of problems George's prepared
 n, m = list(map(int, input().split()))
 # the requirements for the complexity of the problems in a good round 
-A = list(map(int, input().split()))
+a = list(map(int, input().split()))
 # the complexities of the problems prepared by George
-B = list(map(int, input().split()))
+b = list(map(int, input().split()))
 
-counter = 0
-for complexity in A:
-    if complexity >= max(B):
+# counter = satisfied complexites
+counter = i = 0
+
+# if b[j] > a[i] --> complexity can be used --> increase i, j, and count
+# if b[j] < a[i] --> increase j to look for another complexity
+for j in range(m):
+    if i >= n:
+        break
+
+    if b[j] >= a[i]:
         counter += 1
-    else:
-        counter += 0
+        i += 1
 
-print(counter)
+print(n-counter)

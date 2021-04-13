@@ -25,8 +25,8 @@ else:
     i, j, diff = 0, 0, 0
 
     while (j < n):
-        print('j: ' + str(j) + ' --> ' + 'a[j]: ' + str(a[j]) + ' --> ' + 'count[a[j]]: ' + str(count[a[j]]) + ' --> ' + 'pj: ' +
-              str(count) + ' --> ' + 'diff: ' + str(diff))
+        '''print('j: ' + str(j) + ' --> ' + 'a[j]: ' + str(a[j]) + ' --> ' + 'count[a[j]]: ' + str(count[a[j]]) + ' --> ' + 'pj: ' +
+              str(count) + ' --> ' + 'diff: ' + str(diff))'''
         if count[a[j]] == 0:
             diff += 1
         count[a[j]] += 1
@@ -34,11 +34,11 @@ else:
             break
         j += 1
 
-    print('-----------------------------------------------')
+    #print('-----------------------------------------------')
 
     while i < n:
-        print('i: ' + str(i) + ' --> ' + 'a[i]: ' + str(a[i]) + ' --> ' + 'count[a[i]]: ' + str(count[a[i]]) + ' --> ' + 'pi: ' +
-              str(count) + ' --> ' + 'diff: ' + str(diff))
+        '''print('i: ' + str(i) + ' --> ' + 'a[i]: ' + str(a[i]) + ' --> ' + 'count[a[i]]: ' + str(count[a[i]]) + ' --> ' + 'pi: ' +
+              str(count) + ' --> ' + 'diff: ' + str(diff))'''
         if count[a[i]] == 1:
             diff -= 1
         count[a[i]] -= 1

@@ -18,3 +18,13 @@ n, a, b = list(map(int, input().split()))
 # complexities of the chores
 h = list(map(int, input().split()))
 
+h.sort()
+
+# Petya takes the a biggest complexities
+Petya = h[n-a:]
+Vasya = h[:n-a]
+
+if Petya[0] <= Vasya[-1]:
+    print(0)
+else:
+    print(Petya[0] - Vasya[-1])

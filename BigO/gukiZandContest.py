@@ -22,7 +22,6 @@ n = int(input())
 a = list(map(int, input().split()))
 
 sorted_a = sorted(a, reverse=True)
-result = []
 ratings = {}
 ratings[sorted_a[0]] = 1
 

@@ -1,13 +1,15 @@
 from queue import Queue
 max = 100
-v = None
-e = None
+# V = Vertices
+# E = Edges
+V = None
+E = None
 visited = [False for i in range(max)]
 path = [0 for i in range(max)]
 graph = [[] for i in range(max)]
 
 def BFS(s):
-    for i in range(v):
+    for i in range(V):
         visited[i] = False
         path[i] = -1
     
@@ -23,12 +25,15 @@ def BFS(s):
                 q.put(v)
                 path[v] = u
 
+# s: starting point
+# f: finishing point
 def printPath(s, f):
+    # no recursion
     b = []
     if f == s:
         print(s)
         return
-    if path[f] == 1:
+    if path[f] == -1:
         print('No Path')
         return
     while True:
@@ -38,16 +43,16 @@ def printPath(s, f):
             b.append(s)
             break
 
-        for i in range(len(b)-1, -1, -1):
-            print(b[i], end=' ')
+    for i in range(len(b)-1, -1, -1):
+        print(b[i], end=' ')
 
 if __name__ == '__main__':
-    v, e = map(int, input().split())
-    for i in range(e):
+    V, E = map(int, input().split())
+    for i in range(E):
         u, v = map(int, input().split())
         graph[u].append(v)
         graph[v].append(u)
     s = 0
-    f = 5
+    f = 4
     BFS(s)
     printPath(s, f)

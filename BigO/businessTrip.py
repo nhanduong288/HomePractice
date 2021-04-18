@@ -19,7 +19,6 @@ centimeters = list(map(int, input().split()))
 growth, count = 0, 0
 # minimum number of months = water in the months that the flower grows the most
 centimeters.sort(reverse=True)
-print(centimeters)
 
 if k == 0:
     count = 0

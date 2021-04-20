@@ -22,9 +22,6 @@ for i in range(len(points)):
     if points[i][1] not in ys:
         ys.append(points[i][1])
 
-print(xs)
-print(ys)
-
 if len(xs) != 3 or len(ys) != 3:
     print('ugly')
     exit(0)
